@@ -6,8 +6,10 @@
 package Formularios;
 
 import java.awt.Component;
+import java.awt.KeyboardFocusManager;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,28 +25,23 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @author Who I am
  */
 public class FormLogin extends javax.swing.JFrame {
+
     int x, y;
-  
-    private String  usuario, password;
+
+    private String usuario, password;
 
     public FormLogin() {
         initComponents();
         txt_usuario.setFocusable(true);
-       
-       
+
     }
 
     public void datos(String us, String pass) {
         usuario = "user";
         password = "admin";
-       
-       
-       
-   
 
     }
 
-  
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -80,14 +77,26 @@ public class FormLogin extends javax.swing.JFrame {
         txt_password.setForeground(new java.awt.Color(51, 51, 51));
         txt_password.setBordeColorFocus(new java.awt.Color(51, 51, 51));
         txt_password.setBordeColorNoFocus(new java.awt.Color(0, 0, 0));
+        txt_password.setFocusCycleRoot(true);
         txt_password.setMaterialDesing(true);
+        txt_password.setNextFocusableComponent(guardar);
         txt_password.setPlaceholder("CONTRASEÑA");
+        txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_passwordKeyPressed(evt);
+            }
+        });
 
         txt_usuario.setForeground(new java.awt.Color(51, 51, 51));
         txt_usuario.setBordeColorFocus(new java.awt.Color(0, 0, 0));
         txt_usuario.setBordeColorNoFocus(new java.awt.Color(0, 0, 0));
         txt_usuario.setMaterialDesing(true);
         txt_usuario.setPlaceholder("NOMBRE DE USUARIO");
+        txt_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_usuarioKeyPressed(evt);
+            }
+        });
 
         guardar.setText("INICIAR SESIÓN");
         guardar.setColorNormal(new java.awt.Color(102, 102, 102));
@@ -95,6 +104,11 @@ public class FormLogin extends javax.swing.JFrame {
         guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarActionPerformed(evt);
+            }
+        });
+        guardar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                guardarKeyPressed(evt);
             }
         });
 
@@ -178,6 +192,13 @@ public class FormLogin extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        txt_password.getAccessibleContext().setAccessibleName("Contraseña");
+        txt_password.getAccessibleContext().setAccessibleDescription("Contraseña");
+        txt_usuario.getAccessibleContext().setAccessibleName("usuario");
+        txt_usuario.getAccessibleContext().setAccessibleDescription("Nombre de Usuario");
+        guardar.getAccessibleContext().setAccessibleName("Iniciar Sesion");
+        guardar.getAccessibleContext().setAccessibleDescription("Iniciar Sesion");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,23 +250,78 @@ public class FormLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
             txt_password.setFocusable(true);
         }
-        
-       
-        String encriptMD5=DigestUtils.md5Hex(password);
-        System.out.println("Contraseña encriptada : "+encriptMD5);
+
+        String encriptMD5 = DigestUtils.md5Hex(password);
+        System.out.println("Contraseña encriptada : " + encriptMD5);
     }//GEN-LAST:event_guardarActionPerformed
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         // TODO add your handling code here:
-          x = evt.getX();
+        x = evt.getX();
         y = evt.getY();
     }//GEN-LAST:event_jPanel1MousePressed
 
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
         // TODO add your handling code here:
-         Point mueve = MouseInfo.getPointerInfo().getLocation();
+        Point mueve = MouseInfo.getPointerInfo().getLocation();
         this.setLocation(mueve.x - x, mueve.y - y);
     }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void txt_usuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usuarioKeyPressed
+        // TODO add your handling code here:
+     txt_usuario.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
+                java.util.Collections.EMPTY_SET);
+        if (evt.getKeyCode() == KeyEvent.VK_TAB) {
+            txt_password.requestFocus();
+            
+            
+        }
+
+    }//GEN-LAST:event_txt_usuarioKeyPressed
+
+    private void txt_passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwordKeyPressed
+        // TODO add your handling code here:
+   txt_password.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
+                java.util.Collections.EMPTY_SET);
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            guardar.requestFocus();
+            
+              datos(usuario, password);
+        if (usuario.equals(txt_usuario.getText()) && password.equals(txt_password.getText())) {
+            Principal st = new Principal();
+            st.setVisible(true);
+            this.dispose();
+        } else if (txt_usuario.getText().equals("") && txt_password.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña estan vacios\nIngrese los por favor.");
+            txt_usuario.setFocusable(true);
+        } else if (txt_usuario.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Usuario está vacio\nIngrese lo por favor.");
+            txt_usuario.setFocusable(true);
+        } else if (txt_password.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Contraseña está vacio\nIngrese lo por favor.");
+            txt_password.setFocusable(true);
+        } else if (txt_usuario.getText().compareTo(usuario) != 0 && txt_password.getText().compareTo(password) != 0) {
+            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos\nIngrese nuevamente.");
+            txt_usuario.setFocusable(true);
+        } else if (txt_usuario.getText().compareTo(usuario) != 0) {
+            JOptionPane.showMessageDialog(this, "Usuario no válido\nIngrese nuevamente.");
+            txt_usuario.setFocusable(true);
+        } else if (txt_password.getText().compareTo(password) != 0) {
+            JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
+            txt_password.setFocusable(true);
+        }
+
+        String encriptMD5 = DigestUtils.md5Hex(password);
+        System.out.println("Contraseña encriptada : " + encriptMD5);
+           
+        }
+    }//GEN-LAST:event_txt_passwordKeyPressed
+
+    private void guardarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_guardarKeyPressed
+        // TODO add your handling code here:
+       
+     
+    }//GEN-LAST:event_guardarKeyPressed
 
     /**
      * @param args the command line arguments

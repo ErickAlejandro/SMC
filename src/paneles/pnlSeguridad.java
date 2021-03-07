@@ -28,111 +28,97 @@ public class pnlSeguridad extends javax.swing.JPanel {
     Controladores.SeguridadJpaController seguridad = new SeguridadJpaController();
     int currentRow;
     boolean flag = true;
- 
-    String trasladoo= null;
-    String transportee =null;
-    
+
+    String trasladoo = null;
+    String transportee = null;
+
     public pnlSeguridad() {
         initComponents();
         panelacompañado.setVisible(false);
-//    maximon();
         createmodelo();
         cargar_informacion();
-         id.setText("0");
-           id.setEnabled(false);
+        ced.setFocusable(true);
+        ced.requestFocus(true);
+        id.setText("0");
+        id.setEnabled(false);
+
     }
-    
-    
-  public  String getTraslado()
-{
-    if(SOLOS.isSelected())
-    {
-        return "SOLO";
+
+    public String getTraslado() {
+        if (SOLOS.isSelected()) {
+            return "SOLO";
+        } else if (ACOMPAÑADO.isSelected()) {
+            return "ACOMPAÑADO";
+        } else {
+            return null;
+        }
     }
-    else if(ACOMPAÑADO.isSelected())
-    {
-        return "ACOMPAÑADO";
+
+    public String getTransporte() {
+        if (ESCOLAR.isSelected()) {
+            return "ESCOLAR";
+        } else if (PRIVADO.isSelected()) {
+            return "PRIVADO";
+        } else if (NOUSA.isSelected()) {
+            return "NO USA";
+        } else {
+            return null;
+        }
     }
-    else
-    {
-        return null;
-    }
-} 
-  
-   public  String getTransporte()
-{
-    if(ESCOLAR.isSelected())
-    {
-        return "ESCOLAR";
-    }
-    else if(PRIVADO.isSelected())
-    {
-        return "PRIVADO";
-    }
-     else if(NOUSA.isSelected())
-    {
-        return "NO USA";
-    }
-    else
-    {
-        return null;
-    }
-} 
-  //  private void maximon(){
-        
-      //  cls_conexion cx = new cls_conexion();
-        
-      //  ResultSet rs = cx.Consulta("SELECT max(id_seguridad) FROM seguridad");
-      //  try {
-       //     int id = rs.getInt("id_seguridad");
-        //    System.out.println(id);
-      //  } catch (SQLException ex) {
-      //      Logger.getLogger(pnlSeguridad.class.getName()).log(Level.SEVERE, null, ex);
-      //  }
- //   }
-            
+    //  private void maximon(){
+
+    //  cls_conexion cx = new cls_conexion();
+    //  ResultSet rs = cx.Consulta("SELECT max(id_seguridad) FROM seguridad");
+    //  try {
+    //     int id = rs.getInt("id_seguridad");
+    //    System.out.println(id);
+    //  } catch (SQLException ex) {
+    //      Logger.getLogger(pnlSeguridad.class.getName()).log(Level.SEVERE, null, ex);
+    //  }
+    //   }
     public static DefaultTableModel modelo;
-    
-    private void createmodelo(){
-    try {
-        modelo = (new DefaultTableModel(null, new String[]{"Id","Cédula","Apellidos Estudiante","Nombres Estudiante ","Año de basica",
-            "Apellidos Representante","Nombres Representante","Direccion","Telefono","Forma Traslado",
-            "Cedula Responsable","Apellidos Responsable","Nombres Responsables","Telefono Responsable","Modalidad Transporte"}){
-        Class[] types = new Class[]{
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class,
-            java.lang.String.class};
-        
-        
-        boolean[] canEdit = new boolean[] {false, false, false,false, false, false,false, false, false,false, false, false,false, false};
-        
-        @Override
-        public Class getColumnClass (int columnindex){
-            return types[columnindex];
+
+    private void createmodelo() {
+        try {
+            modelo = (new DefaultTableModel(null, new String[]{"Id", "Cédula", "Apellidos Estudiante", "Nombres Estudiante ", "Año de basica",
+                "Apellidos Representante", "Nombres Representante", "Direccion", "Telefono", "Forma Traslado",
+                "Cedula Responsable", "Apellidos Responsable", "Nombres Responsables", "Telefono Responsable", "Modalidad Transporte"}) {
+                Class[] types = new Class[]{
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class,
+                    java.lang.String.class};
+
+                boolean[] canEdit = new boolean[]{false, false, false, false, false, false, false, false, false, false, false, false, false, false};
+
+                @Override
+                public Class getColumnClass(int columnindex) {
+                    return types[columnindex];
+                }
+
+                public boolean isCellEdittable(int rowindex, int colindex) {
+                    return canEdit[colindex];
+                }
+
+            });
+            tabla1.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString() + "Error");
         }
-        public boolean isCellEdittable(int rowindex, int colindex){
-            return canEdit[colindex];
-        }
-        
-    }); tabla1.setModel(modelo);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, e.toString()+"Error");
     }
-}
-    private void clear()
-    {
+
+    private void clear() {
         //id.setText("");
         ced.setText("");
         ape.setText("");
@@ -142,46 +128,48 @@ public class pnlSeguridad extends javax.swing.JPanel {
         nom_rep.setText("");
         dir.setText("");
         tel.setText("");
-     //   SOLO.setText("");
-      //  ACOMPAÑADO.setText("");
+        //   SOLO.setText("");
+        //  ACOMPAÑADO.setText("");
         ced_tras.setText("");
         ape_tras.setText("");
         nom_tras.setText("");
         tel_tras.setText("");
-    //    ESCOLAR.setText("");
-    //    PRIVADO.setText("");
-     //   NOUSA.setText("");
-       
-}
-private void cargar_informacion(){
-    try {
-        Object [] o = null;
+        //    ESCOLAR.setText("");
+        //    PRIVADO.setText("");
+        //   NOUSA.setText("");
 
-    List<Entidades.Seguridad> listaActivoses = seguridad.findSeguridadEntities();
-        for (int i = 0; i< listaActivoses.size(); i++){
-            modelo.addRow(o);
-            modelo.setValueAt(listaActivoses.get(i).getIdSeguridad(), i, 0);            
-            modelo.setValueAt(listaActivoses.get(i).getCedEst(), i, 1);
-            modelo.setValueAt(listaActivoses.get(i).getApeEst(), i, 2);
-            modelo.setValueAt(listaActivoses.get(i).getNomEst(), i, 3);            
-            modelo.setValueAt(listaActivoses.get(i).getAñoBas(), i, 4);
-            modelo.setValueAt(listaActivoses.get(i).getApeRep(), i, 5);
-            modelo.setValueAt(listaActivoses.get(i).getNomRep(), i, 6);            
-            modelo.setValueAt(listaActivoses.get(i).getDirEst(), i, 7);
-            modelo.setValueAt(listaActivoses.get(i).getTelEst(), i, 8);
-            modelo.setValueAt(listaActivoses.get(i).getFormaTraslado(), i, 9);            
-            modelo.setValueAt(listaActivoses.get(i).getCedResponsable(), i, 10);
-            modelo.setValueAt(listaActivoses.get(i).getApellidosResponsable(), i, 11);
-            modelo.setValueAt(listaActivoses.get(i).getNombresResponsable(), i, 12);
-            modelo.setValueAt(listaActivoses.get(i).getTelefonoResponsable(), i, 13);
-            modelo.setValueAt(listaActivoses.get(i).getModalidadTransporte(), i, 14);
-           
-        }
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, e.getMessage());
     }
 
-}
+    private void cargar_informacion() {
+        try {
+            Object[] o = null;
+
+            List<Entidades.Seguridad> listaActivoses = seguridad.findSeguridadEntities();
+            for (int i = 0; i < listaActivoses.size(); i++) {
+                modelo.addRow(o);
+                modelo.setValueAt(listaActivoses.get(i).getIdSeguridad(), i, 0);
+                modelo.setValueAt(listaActivoses.get(i).getCedEst(), i, 1);
+                modelo.setValueAt(listaActivoses.get(i).getApeEst(), i, 2);
+                modelo.setValueAt(listaActivoses.get(i).getNomEst(), i, 3);
+                modelo.setValueAt(listaActivoses.get(i).getAñoBas(), i, 4);
+                modelo.setValueAt(listaActivoses.get(i).getApeRep(), i, 5);
+                modelo.setValueAt(listaActivoses.get(i).getNomRep(), i, 6);
+                modelo.setValueAt(listaActivoses.get(i).getDirEst(), i, 7);
+                modelo.setValueAt(listaActivoses.get(i).getTelEst(), i, 8);
+                modelo.setValueAt(listaActivoses.get(i).getFormaTraslado(), i, 9);
+                modelo.setValueAt(listaActivoses.get(i).getCedResponsable(), i, 10);
+                modelo.setValueAt(listaActivoses.get(i).getApellidosResponsable(), i, 11);
+                modelo.setValueAt(listaActivoses.get(i).getNombresResponsable(), i, 12);
+                modelo.setValueAt(listaActivoses.get(i).getTelefonoResponsable(), i, 13);
+                modelo.setValueAt(listaActivoses.get(i).getModalidadTransporte(), i, 14);
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -514,6 +502,7 @@ private void cargar_informacion(){
             }
         });
         add(ced, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 180, 20));
+        ced.getAccessibleContext().setAccessibleName("");
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel30.setText("Año de básica:");
@@ -613,7 +602,7 @@ private void cargar_informacion(){
 
     private void ACOMPAÑADOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ACOMPAÑADOActionPerformed
         //TODO add your handling code here:
-         panelacompañado.setVisible(true);
+        panelacompañado.setVisible(true);
     }//GEN-LAST:event_ACOMPAÑADOActionPerformed
 
     private void ced_trasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ced_trasActionPerformed
@@ -659,120 +648,114 @@ private void cargar_informacion(){
     private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
         // TODO add your handling code here:
         this.currentRow = tabla1.getSelectedRow();
-        
-        
+
+
     }//GEN-LAST:event_tabla1MouseClicked
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
         // TODO add your handling code here:
-        
-       
-        
+
         Entidades.Seguridad obj = new Entidades.Seguridad();
 
-            obj.setIdSeguridad(parseInt(id.getText())); 
-            obj.setCedEst(ced.getText());
-            obj.setApeEst(ape.getText()); 
-            obj.setNomEst(nom.getText());
-            obj.setAñoBas(parseInt(año.getText())); 
-            obj.setApeRep(ape_rep.getText());
-            obj.setNomRep(nom_rep.getText()); 
-            obj.setDirEst(dir.getText());
-            obj.setTelEst(parseInt(tel.getText())); 
-            
-            obj.setFormaTraslado(getTraslado());
-        
-            obj.setCedResponsable(ced_tras.getText()); 
-            obj.setApellidosResponsable(ape_tras.getText());
-            obj.setNombresResponsable(nom_tras.getText());
-            obj.setTelefonoResponsable(tel_tras.getText());
-            
-            obj.setModalidadTransporte(getTransporte());
-            
+        obj.setIdSeguridad(parseInt(id.getText()));
+        obj.setCedEst(ced.getText());
+        obj.setApeEst(ape.getText());
+        obj.setNomEst(nom.getText());
+        obj.setAñoBas(parseInt(año.getText()));
+        obj.setApeRep(ape_rep.getText());
+        obj.setNomRep(nom_rep.getText());
+        obj.setDirEst(dir.getText());
+        obj.setTelEst(parseInt(tel.getText()));
+
+        obj.setFormaTraslado(getTraslado());
+
+        obj.setCedResponsable(ced_tras.getText());
+        obj.setApellidosResponsable(ape_tras.getText());
+        obj.setNombresResponsable(nom_tras.getText());
+        obj.setTelefonoResponsable(tel_tras.getText());
+
+        obj.setModalidadTransporte(getTransporte());
+
         if (flag) {
-                    try {
-                        seguridad.create(obj);
-                        JOptionPane.showMessageDialog(null, "Registro guardado correctamente");
-                        createmodelo();
-                        cargar_informacion();
-                        clear();
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, e.getMessage(), "Error en DB", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-                    try {
-                        seguridad.edit(obj);
-                        JOptionPane.showMessageDialog(null, "Registro actualizado correctamente");
-                        createmodelo();
-                        cargar_informacion();
-                        clear();
-                        flag = true;
-                       
-                        id.setEnabled(true);
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, e.getMessage());
-                    }
-                }
+            try {
+                seguridad.create(obj);
+                JOptionPane.showMessageDialog(null, "Registro guardado correctamente");
+                createmodelo();
+                cargar_informacion();
+                clear();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error en DB", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            try {
+                seguridad.edit(obj);
+                JOptionPane.showMessageDialog(null, "Registro actualizado correctamente");
+                createmodelo();
+                cargar_informacion();
+                clear();
+                flag = true;
+
+                id.setEnabled(true);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        }
     }//GEN-LAST:event_guardarActionPerformed
-   
+
 
     private void SOLOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SOLOSMouseClicked
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_SOLOSMouseClicked
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
         // TODO add your handling code here:
-        flag=false;  
+        flag = false;
         modelo = (DefaultTableModel) tabla1.getModel();
-        
+
         id.setText(modelo.getValueAt(this.currentRow, 0).toString());
         ced.setText(modelo.getValueAt(this.currentRow, 1).toString());
         ape.setText(modelo.getValueAt(this.currentRow, 2).toString());
-        
+
         nom.setText(modelo.getValueAt(this.currentRow, 3).toString());
         año.setText(modelo.getValueAt(this.currentRow, 4).toString());
         ape_rep.setText(modelo.getValueAt(this.currentRow, 5).toString());
         nom_rep.setText(modelo.getValueAt(this.currentRow, 6).toString());
         dir.setText(modelo.getValueAt(this.currentRow, 7).toString());
         tel.setText(modelo.getValueAt(this.currentRow, 8).toString());
-      
-        
-        this.trasladoo=modelo.getValueAt(this.currentRow, 9).toString();
-       
-       if(this.trasladoo.equals("SOLO")){
-           SOLOS.setSelected(true);
-       }
-        else if (this.trasladoo.equals("ACOMPAÑADO")){
-             ACOMPAÑADO.setSelected(true);
-       }    
-        
+
+        this.trasladoo = modelo.getValueAt(this.currentRow, 9).toString();
+
+        if (this.trasladoo.equals("SOLO")) {
+            SOLOS.setSelected(true);
+        } else if (this.trasladoo.equals("ACOMPAÑADO")) {
+            ACOMPAÑADO.setSelected(true);
+        }
+
         ced_tras.setText(modelo.getValueAt(this.currentRow, 10).toString());
-       ape_tras.setText(modelo.getValueAt(this.currentRow, 11).toString());
-       nom_tras.setText(modelo.getValueAt(this.currentRow, 12).toString());
-         tel_tras.setText(modelo.getValueAt(this.currentRow, 13).toString());
-       
-       this.transportee=modelo.getValueAt(this.currentRow, 14).toString();
-        if(this.transportee.equals("ESCOLAR")){
-          ESCOLAR.setSelected(true);
-   }
-     else if (this.transportee.equals("PRIVADO")){
-             ACOMPAÑADO.setSelected(true);
-        }    
-    else if (this.transportee.equals("NO USA")){
-             NOUSA.setSelected(true);
-       }
-        
+        ape_tras.setText(modelo.getValueAt(this.currentRow, 11).toString());
+        nom_tras.setText(modelo.getValueAt(this.currentRow, 12).toString());
+        tel_tras.setText(modelo.getValueAt(this.currentRow, 13).toString());
+
+        this.transportee = modelo.getValueAt(this.currentRow, 14).toString();
+        if (this.transportee.equals("ESCOLAR")) {
+            ESCOLAR.setSelected(true);
+        } else if (this.transportee.equals("PRIVADO")) {
+            ACOMPAÑADO.setSelected(true);
+        } else if (this.transportee.equals("NO USA")) {
+            NOUSA.setSelected(true);
+        }
+
         id.setEnabled(false);
-       
-      
+
+
     }//GEN-LAST:event_actualizarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         // TODO add your handling code here:
-            try {
+        try {
             seguridad.destroy(parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString()));
-      //    ctcliente.destroy(olsito.getValueAt(olsito.getSelectedRow(), 0).toString());
+            //    ctcliente.destroy(olsito.getValueAt(olsito.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(null, "Registro Eliminado");
             createmodelo();
             cargar_informacion();
@@ -787,122 +770,111 @@ private void cargar_informacion(){
 
     private void cedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedKeyTyped
         // TODO add your handling code here:
-              char c=evt.getKeyChar();
-        if(Character.isLetter(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_cedKeyTyped
 
     private void apeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apeKeyTyped
         // TODO add your handling code here:
-            char c=evt.getKeyChar();
-        if(Character.isDigit(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_apeKeyTyped
 
     private void nomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomKeyTyped
         // TODO add your handling code here:
-            char c=evt.getKeyChar();
-        if(Character.isDigit(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_nomKeyTyped
 
     private void añoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_añoKeyTyped
         // TODO add your handling code here:
-              char c=evt.getKeyChar();
-        if(Character.isLetter(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_añoKeyTyped
 
     private void ape_repKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ape_repKeyTyped
         // TODO add your handling code here:
-            char c=evt.getKeyChar();
-        if(Character.isDigit(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ape_repKeyTyped
 
     private void nom_repKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nom_repKeyTyped
         // TODO add your handling code here:
-              char c=evt.getKeyChar();
-        if(Character.isDigit(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_nom_repKeyTyped
 
     private void telKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telKeyTyped
         // TODO add your handling code here:
-            char c=evt.getKeyChar();
-        if(Character.isLetter(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_telKeyTyped
 
     private void ced_trasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ced_trasKeyTyped
         // TODO add your handling code here:
-             char c=evt.getKeyChar();
-        if(Character.isLetter(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ced_trasKeyTyped
 
     private void ape_trasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ape_trasKeyTyped
         // TODO add your handling code here:
-           char c=evt.getKeyChar();
-        if(Character.isDigit(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ape_trasKeyTyped
 
     private void nom_trasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nom_trasKeyTyped
         // TODO add your handling code here:
-           char c=evt.getKeyChar();
-        if(Character.isDigit(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Letras", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_nom_trasKeyTyped
 
     private void tel_trasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tel_trasKeyTyped
         // TODO add your handling code here:
-          char c=evt.getKeyChar();
-        if(Character.isLetter(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta",ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese Solo Numeros", "Alerta", ERROR_MESSAGE);
         }
     }//GEN-LAST:event_tel_trasKeyTyped
 
@@ -920,7 +892,7 @@ private void cargar_informacion(){
     private javax.swing.JTextField ape_rep;
     private javax.swing.JTextField ape_tras;
     private javax.swing.JTextField año;
-    private javax.swing.JTextField ced;
+    public javax.swing.JTextField ced;
     private javax.swing.JTextField ced_tras;
     private javax.swing.JTextField dir;
     private rsbuttom.RSButtonMetro guardar;
