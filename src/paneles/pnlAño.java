@@ -30,6 +30,11 @@ public class pnlAño extends javax.swing.JPanel {
         id.setEnabled(false);
          createmodelo();
         cargar_informacion();
+        
+        año.setNextFocusableComponent(estado);
+        estado.setNextFocusableComponent(guardar);
+        guardar.setNextFocusableComponent(actualizar);
+        actualizar.setNextFocusableComponent(Eliminar);
     }
 
     private void createmodelo() {
@@ -133,6 +138,8 @@ public class pnlAño extends javax.swing.JPanel {
             }
         });
         add(año, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 150, -1));
+        año.getAccessibleContext().setAccessibleName("año lectivo");
+        año.getAccessibleContext().setAccessibleDescription("año lectivo");
 
         jLabel29.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -151,6 +158,7 @@ public class pnlAño extends javax.swing.JPanel {
             }
         });
         add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+        guardar.getAccessibleContext().setAccessibleDescription("boton guardar");
 
         actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_change_30px_2.png"))); // NOI18N
         actualizar.setText("Editar");
@@ -164,6 +172,7 @@ public class pnlAño extends javax.swing.JPanel {
             }
         });
         add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
+        actualizar.getAccessibleContext().setAccessibleDescription("boton editar");
 
         Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_delete_bin_30px.png"))); // NOI18N
         Eliminar.setText("Eliminar");
@@ -177,6 +186,7 @@ public class pnlAño extends javax.swing.JPanel {
             }
         });
         add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, -1));
+        Eliminar.getAccessibleContext().setAccessibleDescription("boton eliminar");
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -229,6 +239,8 @@ public class pnlAño extends javax.swing.JPanel {
             }
         });
         add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 150, -1));
+        estado.getAccessibleContext().setAccessibleName("estado");
+        estado.getAccessibleContext().setAccessibleDescription("estado");
 
         jLabel31.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);

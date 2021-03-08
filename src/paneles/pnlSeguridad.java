@@ -41,6 +41,19 @@ public class pnlSeguridad extends javax.swing.JPanel {
         ced.requestFocus(true);
         id.setText("0");
         id.setEnabled(false);
+        
+        ced.setNextFocusableComponent(ape);
+        ape.setNextFocusableComponent(nom);
+        nom.setNextFocusableComponent(año);
+        año.setNextFocusableComponent(ape_rep);
+        ape_rep.setNextFocusableComponent(nom_rep);
+        nom_rep.setNextFocusableComponent(dir);
+        dir.setNextFocusableComponent(tel);
+        
+        guardar.setNextFocusableComponent(actualizar);
+        actualizar.setNextFocusableComponent(Eliminar);
+       
+
 
     }
 
@@ -284,6 +297,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(ape_rep, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 170, 180, -1));
+        ape_rep.getAccessibleContext().setAccessibleName("apellidos del representante");
+        ape_rep.getAccessibleContext().setAccessibleDescription("apellidos del representante");
 
         tel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,6 +311,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(tel, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 180, -1));
+        tel.getAccessibleContext().setAccessibleName("telefono");
+        tel.getAccessibleContext().setAccessibleDescription("telefono");
 
         dir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,6 +320,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(dir, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 230, 180, -1));
+        dir.getAccessibleContext().setAccessibleName("direccion de domicilio");
+        dir.getAccessibleContext().setAccessibleDescription("direccion de domicilio");
 
         SOLOS.setBackground(new java.awt.Color(255, 255, 255));
         trasladosgroup.add(SOLOS);
@@ -318,6 +337,7 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(SOLOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 60, 20));
+        SOLOS.getAccessibleContext().setAccessibleDescription("el estudiante se transporta solo");
 
         ACOMPAÑADO.setBackground(new java.awt.Color(255, 255, 255));
         trasladosgroup.add(ACOMPAÑADO);
@@ -328,6 +348,7 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(ACOMPAÑADO, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 110, 20));
+        ACOMPAÑADO.getAccessibleContext().setAccessibleDescription("el estudiante se transporta acompañado");
 
         panelacompañado.setBackground(new java.awt.Color(255, 255, 255));
         panelacompañado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -359,6 +380,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         panelacompañado.add(tel_tras, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, 290, -1));
+        tel_tras.getAccessibleContext().setAccessibleName("telefono");
+        tel_tras.getAccessibleContext().setAccessibleDescription("telefono");
 
         ced_tras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,6 +394,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         panelacompañado.add(ced_tras, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 290, -1));
+        ced_tras.getAccessibleContext().setAccessibleName("cedula");
+        ced_tras.getAccessibleContext().setAccessibleDescription("cedula");
 
         ape_tras.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -378,6 +403,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         panelacompañado.add(ape_tras, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 290, -1));
+        ape_tras.getAccessibleContext().setAccessibleName("apellidos");
+        ape_tras.getAccessibleContext().setAccessibleDescription("apellidos");
 
         nom_tras.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -385,6 +412,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         panelacompañado.add(nom_tras, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 290, -1));
+        nom_tras.getAccessibleContext().setAccessibleName("nombres");
+        nom_tras.getAccessibleContext().setAccessibleDescription("nombres");
 
         NOUSA.setBackground(new java.awt.Color(255, 255, 255));
         transporte.add(NOUSA);
@@ -395,6 +424,7 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         panelacompañado.add(NOUSA, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, 20));
+        NOUSA.getAccessibleContext().setAccessibleDescription("no usa transporte");
 
         ESCOLAR.setBackground(new java.awt.Color(255, 255, 255));
         transporte.add(ESCOLAR);
@@ -405,6 +435,7 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         panelacompañado.add(ESCOLAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, 20));
+        ESCOLAR.getAccessibleContext().setAccessibleDescription("el modo de transporte es escolar");
 
         PRIVADO.setBackground(new java.awt.Color(255, 255, 255));
         transporte.add(PRIVADO);
@@ -415,6 +446,7 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         panelacompañado.add(PRIVADO, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, 20));
+        PRIVADO.getAccessibleContext().setAccessibleDescription("el modo de transporte es privado");
 
         jLabel24.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
         jLabel24.setText("MODALIDAD DE TRANSPORTE:");
@@ -452,6 +484,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 180, -1));
+        nom.getAccessibleContext().setAccessibleName("nombres del estudiante");
+        nom.getAccessibleContext().setAccessibleDescription("nombres del estudiante");
 
         nom_rep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -464,6 +498,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(nom_rep, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 200, 180, -1));
+        nom_rep.getAccessibleContext().setAccessibleName("nombres del representante");
+        nom_rep.getAccessibleContext().setAccessibleDescription("nombres del representante");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
         jLabel8.setText("FORMA DE TRASLADO:");
@@ -485,6 +521,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(ape, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 180, 20));
+        ape.getAccessibleContext().setAccessibleName("apellidos del estudiante");
+        ape.getAccessibleContext().setAccessibleDescription("apellidos del estudiante");
 
         Cédula.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         Cédula.setText("Cédula del estudiante:");
@@ -502,7 +540,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(ced, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 180, 20));
-        ced.getAccessibleContext().setAccessibleName("");
+        ced.getAccessibleContext().setAccessibleName("cedula del estudiante");
+        ced.getAccessibleContext().setAccessibleDescription("cedula del estudiante");
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel30.setText("Año de básica:");
@@ -519,6 +558,8 @@ public class pnlSeguridad extends javax.swing.JPanel {
             }
         });
         add(año, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 180, -1));
+        año.getAccessibleContext().setAccessibleName("año de basica");
+        año.getAccessibleContext().setAccessibleDescription("año de basica");
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

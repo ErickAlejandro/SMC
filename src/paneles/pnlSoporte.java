@@ -122,6 +122,7 @@ public class pnlSoporte extends javax.swing.JPanel {
             }
         });
         jPanel1.add(Manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 200, -1));
+        Manual.getAccessibleContext().setAccessibleDescription("Manual de Usuario");
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
     }// </editor-fold>//GEN-END:initComponents

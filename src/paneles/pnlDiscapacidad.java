@@ -31,6 +31,11 @@ public class pnlDiscapacidad extends javax.swing.JPanel {
        id.setEnabled(false);
          createmodelo();
         cargar_informacion();
+        
+        
+        dis.setNextFocusableComponent(guardar);
+        guardar.setNextFocusableComponent(actualizar);
+        actualizar.setNextFocusableComponent(Eliminar);
     }
 
     private void createmodelo() {
@@ -130,6 +135,7 @@ public class pnlDiscapacidad extends javax.swing.JPanel {
             }
         });
         add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, -1, -1));
+        guardar.getAccessibleContext().setAccessibleDescription("boton guardar");
 
         actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_change_30px_2.png"))); // NOI18N
         actualizar.setText("Editar");
@@ -143,6 +149,7 @@ public class pnlDiscapacidad extends javax.swing.JPanel {
             }
         });
         add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, -1));
+        actualizar.getAccessibleContext().setAccessibleDescription("boton editar");
 
         Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_delete_bin_30px.png"))); // NOI18N
         Eliminar.setText("Eliminar");
@@ -156,6 +163,7 @@ public class pnlDiscapacidad extends javax.swing.JPanel {
             }
         });
         add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, -1, -1));
+        Eliminar.getAccessibleContext().setAccessibleDescription("boton eliminar");
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,6 +199,8 @@ public class pnlDiscapacidad extends javax.swing.JPanel {
             }
         });
         add(dis, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 150, -1));
+        dis.getAccessibleContext().setAccessibleName("discapacidad");
+        dis.getAccessibleContext().setAccessibleDescription("ingrese la discapacidad");
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
