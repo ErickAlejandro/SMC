@@ -43,8 +43,8 @@ public class FormLoginTest {
     @Test
     public void testDatos() {
         System.out.println("datos");
-        String us = "";
-        String pass = "";
+        String us = "user";
+        String pass = "admin";
         FormLogin instance = new FormLogin();
         instance.datos(us, pass);
         // TODO review the generated test code and remove the default call to fail.
