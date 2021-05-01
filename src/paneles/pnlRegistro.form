@@ -107,10 +107,6 @@
           <Dimension value="[4, 20]"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="cedula del representante"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="cedula del representante"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cedrepActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cedrepKeyTyped"/>
@@ -122,13 +118,8 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="apeest">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="apellidos del estudiante"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="apellidos del estudiante"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="apeestActionPerformed"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="apeestKeyPressed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="apeestKeyTyped"/>
       </Events>
       <Constraints>
@@ -138,10 +129,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="nomest">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="nombres del estudiante"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="nombres del estudiante"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomestActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nomestKeyTyped"/>
@@ -153,10 +140,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="a&#xf1;oest">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="a&#xf1;o de egb"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="a&#xf1;o de egb"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a&#xf1;oestActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="a&#xf1;oestKeyTyped"/>
@@ -168,13 +151,8 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="cedest">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="cedula del estudiante"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="cedula del estudiante"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cedestActionPerformed"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cedestKeyPressed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cedestKeyTyped"/>
       </Events>
       <Constraints>
@@ -303,10 +281,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="cod">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="codigo de luz"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="codigo de luz"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codActionPerformed"/>
       </Events>
@@ -317,10 +291,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="con">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="telefono convencional"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="telefono convencional"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="conActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="conKeyTyped"/>
@@ -332,10 +302,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="dir">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="direccion de domicilio"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="direccion de domicilio"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dirActionPerformed"/>
       </Events>
@@ -346,10 +312,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="nomrep">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="nombres  del representante"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="nombres  del representante"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomrepActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nomrepKeyTyped"/>
@@ -376,10 +338,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="cel">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="telefono celular"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="telefono celular"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="celActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="celKeyTyped"/>
@@ -391,10 +349,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="cor">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="correo electronico"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="correo electronico"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="corActionPerformed"/>
       </Events>
@@ -472,10 +426,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="por">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="porcentaje de discapacidad"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="porcentaje de discapacidad"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="porKeyTyped"/>
       </Events>
@@ -486,10 +436,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="carn">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="numero de carnet del conadis"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="numero de carnet del conadis"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="carnKeyTyped"/>
       </Events>
@@ -513,10 +459,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="aperep">
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="apellidos  del representante"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="apellidos  del representante"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aperepActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="aperepKeyTyped"/>
@@ -546,10 +488,6 @@
           <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="boton Guardar"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="boton Guardar"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarActionPerformed"/>
       </Events>
@@ -578,10 +516,6 @@
           <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="boton editar"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="boton Guardar"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="actualizarActionPerformed"/>
       </Events>
@@ -734,10 +668,6 @@
           <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="boton eliminar"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="boton eliminar"/>
-      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Eliminar1ActionPerformed"/>
       </Events>

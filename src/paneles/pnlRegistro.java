@@ -6,15 +6,11 @@
 package paneles;
 
 import Controladores.MatriculacionJpaController;
-import static Entidades.Matriculacion_.fecha;
 import Entidades.cls_conexion;
 import Entidades.valid;
 import groovyjarjarasm.asm.util.Printer;
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.KeyboardFocusManager;
-import java.awt.event.KeyEvent;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import static java.awt.print.Printable.NO_SUCH_PAGE;
@@ -32,7 +28,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.awt.FocusTraversalPolicy;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -52,18 +48,16 @@ public class pnlRegistro extends javax.swing.JPanel {
     boolean flag = true;
     String[] botones = {"Si", "No"};
     int idlec;
-    //pnlRegistro.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{cedest, apeest}));
 
     Entidades.Matriculacion lol = new Entidades.Matriculacion();
 
     public pnlRegistro() {
         initComponents();
-        //   this.sett
+ 
         comboañolectivo();
         combodiscapacidad();
         combobuscar();
-        cls_conexion obj = new cls_conexion();
-
+        cls_conexion obj = new cls_conexion(); 
         createmodelo();
         cargar_informacion();
         id.setText("0");
@@ -71,36 +65,11 @@ public class pnlRegistro extends javax.swing.JPanel {
         txt_fecha.setText(Dates);
         txt_fecha.setEnabled(false);
         lolsito();
-        getALectivo();
-
-        cedest.setNextFocusableComponent(apeest);
-        apeest.setNextFocusableComponent(nomest);
-        nomest.setNextFocusableComponent(añoest);
-        añoest.setNextFocusableComponent(carn);
-        carn.setNextFocusableComponent(dis);
-        dis.setNextFocusableComponent(por);
-        por.setNextFocusableComponent(añolectivo);
-        añolectivo.setNextFocusableComponent(cedrep);
-        cedrep.setNextFocusableComponent(aperep);
-        aperep.setNextFocusableComponent(nomrep);
-        nomrep.setNextFocusableComponent(dir);
-        dir.setNextFocusableComponent(con);
-        con.setNextFocusableComponent(cel);
-        cel.setNextFocusableComponent(cor);
-        cor.setNextFocusableComponent(cod);
-
-        guardar.setNextFocusableComponent(actualizar);
-        actualizar.setNextFocusableComponent(Eliminar1);
-        Eliminar1.setNextFocusableComponent(Buscar1);
 
     }
+    
 
-    private void getALectivo() {
-        //pnlconfig config = new pnlconfig();
-        idlec = pnlconfig.idalectivo;
-        System.err.println("idlec " + idlec);
-    }
-
+    
     public void comboañolectivo() {
         this.añolectivo.removeAllItems();
         try {
@@ -108,33 +77,37 @@ public class pnlRegistro extends javax.swing.JPanel {
             Statement Sent = con.createStatement();
             ResultSet rs = Sent.executeQuery("select * from añolectivo ");
             while (rs.next()) {
-
+                
                 this.añolectivo.addItem(rs.getString("año"));
-
+                 
             }
         } catch (Exception e) {
 
         }
-
+        
+        
+        
     }
-
-    public void combobuscar() {
+    
+   
+ public void combobuscar() {
         this.buscarr.removeAllItems();
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/sistemamatriculacioncng", "root", "");
             Statement Sent = con.createStatement();
             ResultSet rs = Sent.executeQuery("select * from añolectivo");
             while (rs.next()) {
-
+                
                 this.buscarr.addItem(rs.getString("año"));
-
+                 
             }
         } catch (Exception e) {
 
         }
-
+        
+        
+        
     }
-
     public void combodiscapacidad() {
         this.dis.removeAllItems();
         try {
@@ -175,7 +148,7 @@ public class pnlRegistro extends javax.swing.JPanel {
             añolectivo.setEnabled(false);
             guardar.setEnabled(false);
             actualizar.setEnabled(false);
-            //   config.setEnabled(false);
+         //   config.setEnabled(false);
             tabla1.setEnabled(false);
             jLabel7.setEnabled(false);
         }
@@ -245,6 +218,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         cel.setText("");
         cor.setText("");
         cod.setText("");
+        
 
     }
 
@@ -274,14 +248,13 @@ public class pnlRegistro extends javax.swing.JPanel {
                 modelo.setValueAt(matriculacions.get(i).getTelCelular(), i, 15);
                 modelo.setValueAt(matriculacions.get(i).getCorreo(), i, 16);
                 modelo.setValueAt(matriculacions.get(i).getCodigodeluz(), i, 17);
-
+             
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -375,8 +348,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(cedrep, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 210, 20));
-        cedrep.getAccessibleContext().setAccessibleName("cedula del representante");
-        cedrep.getAccessibleContext().setAccessibleDescription("cedula del representante");
 
         apeest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -384,16 +355,11 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         apeest.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                apeestKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 apeestKeyTyped(evt);
             }
         });
         add(apeest, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 210, -1));
-        apeest.getAccessibleContext().setAccessibleName("apellidos del estudiante");
-        apeest.getAccessibleContext().setAccessibleDescription("apellidos del estudiante");
 
         nomest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -406,8 +372,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(nomest, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 210, -1));
-        nomest.getAccessibleContext().setAccessibleName("nombres del estudiante");
-        nomest.getAccessibleContext().setAccessibleDescription("nombres del estudiante");
 
         añoest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -420,8 +384,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(añoest, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 210, -1));
-        añoest.getAccessibleContext().setAccessibleName("año de egb");
-        añoest.getAccessibleContext().setAccessibleDescription("año de egb");
 
         cedest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -429,16 +391,11 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         cedest.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                cedestKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cedestKeyTyped(evt);
             }
         });
         add(cedest, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 210, 20));
-        cedest.getAccessibleContext().setAccessibleName("cedula del estudiante");
-        cedest.getAccessibleContext().setAccessibleDescription("cedula del estudiante");
 
         jLabel17.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -484,8 +441,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 310, 210, -1));
-        cod.getAccessibleContext().setAccessibleName("codigo de luz");
-        cod.getAccessibleContext().setAccessibleDescription("codigo de luz");
 
         con.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -498,8 +453,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(con, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 220, 210, -1));
-        con.getAccessibleContext().setAccessibleName("telefono convencional");
-        con.getAccessibleContext().setAccessibleDescription("telefono convencional");
 
         dir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -507,8 +460,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(dir, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, 210, -1));
-        dir.getAccessibleContext().setAccessibleName("direccion de domicilio");
-        dir.getAccessibleContext().setAccessibleDescription("direccion de domicilio");
 
         nomrep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -521,8 +472,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(nomrep, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 160, 210, -1));
-        nomrep.getAccessibleContext().setAccessibleName("nombres  del representante");
-        nomrep.getAccessibleContext().setAccessibleDescription("nombres  del representante");
 
         txt_fecha.setMinimumSize(new java.awt.Dimension(4, 20));
         txt_fecha.addActionListener(new java.awt.event.ActionListener() {
@@ -543,8 +492,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(cel, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 250, 210, -1));
-        cel.getAccessibleContext().setAccessibleName("telefono celular");
-        cel.getAccessibleContext().setAccessibleDescription("telefono celular");
 
         cor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -552,8 +499,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(cor, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 280, 210, -1));
-        cor.getAccessibleContext().setAccessibleName("correo electronico");
-        cor.getAccessibleContext().setAccessibleDescription("correo electronico");
 
         jTextField27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -587,8 +532,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(por, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 210, -1));
-        por.getAccessibleContext().setAccessibleName("porcentaje de discapacidad");
-        por.getAccessibleContext().setAccessibleDescription("porcentaje de discapacidad");
 
         carn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -596,8 +539,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(carn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 210, -1));
-        carn.getAccessibleContext().setAccessibleName("numero de carnet del conadis");
-        carn.getAccessibleContext().setAccessibleDescription("numero de carnet del conadis");
 
         jLabel37.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel37.setText("Apellidos del Representante:");
@@ -614,8 +555,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(aperep, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 210, -1));
-        aperep.getAccessibleContext().setAccessibleName("apellidos  del representante");
-        aperep.getAccessibleContext().setAccessibleDescription("apellidos  del representante");
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_save_30px_2.png"))); // NOI18N
         guardar.setText("Guardar");
@@ -629,8 +568,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
-        guardar.getAccessibleContext().setAccessibleName("boton Guardar");
-        guardar.getAccessibleContext().setAccessibleDescription("boton Guardar");
 
         actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_change_30px_2.png"))); // NOI18N
         actualizar.setText("Editar");
@@ -644,8 +581,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, -1, -1));
-        actualizar.getAccessibleContext().setAccessibleName("boton editar");
-        actualizar.getAccessibleContext().setAccessibleDescription("boton Guardar");
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -708,8 +643,6 @@ public class pnlRegistro extends javax.swing.JPanel {
             }
         });
         add(Eliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, -1, -1));
-        Eliminar1.getAccessibleContext().setAccessibleName("boton eliminar");
-        Eliminar1.getAccessibleContext().setAccessibleDescription("boton eliminar");
 
         Buscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_search_25px.png"))); // NOI18N
         Buscar1.setText("Buscar");
@@ -727,9 +660,9 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void Eliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar1ActionPerformed
         // TODO add your handling code here:
-        try {
+           try {
             matricula.destroy(parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString()));
-            //    ctcliente.destroy(olsito.getValueAt(olsito.getSelectedRow(), 0).toString());
+      //    ctcliente.destroy(olsito.getValueAt(olsito.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(null, "Registro Eliminado");
             createmodelo();
             cargar_informacion();
@@ -774,8 +707,9 @@ public class pnlRegistro extends javax.swing.JPanel {
         cel.setText(modelo.getValueAt(this.currentRow, 15).toString());
         cor.setText(modelo.getValueAt(this.currentRow, 16).toString());
         cod.setText(modelo.getValueAt(this.currentRow, 17).toString());
-
-        // idlec.(modelo.getValueAt(this.currentRow, 18).toString());
+         
+       // idlec.(modelo.getValueAt(this.currentRow, 18).toString());
+       
         //       cedest.setEnabled(false);
         txt_fecha.setEnabled(false);
         id.setEnabled(false);
@@ -821,7 +755,7 @@ public class pnlRegistro extends javax.swing.JPanel {
                 obj.setTelCelular(cel.getText());
                 obj.setCorreo(cor.getText());
                 obj.setCodigodeluz(cod.getText());
-                //      obj.setIdAñolectivo(idlec);
+          //      obj.setIdAñolectivo(idlec);
 
                 if (flag) {
                     try {
@@ -1031,30 +965,18 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void Buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar1ActionPerformed
         // TODO add your handling code here:
-        cls_conexion obj = new cls_conexion();
-        if (jComboBox1.getSelectedItem().toString().equals("*")) {
-            obj.CargarTabla("Select  * From matriculacion", tabla1);
+             cls_conexion obj = new cls_conexion();
+        if(jComboBox1.getSelectedItem().toString().equals("*"))
+        {           
+            obj.CargarTabla("Select  * From matriculacion" , tabla1);
         }
-        if (jComboBox1.getSelectedItem().toString().equals("Año Lectivo")) {
-            obj.CargarTabla("Select  * From matriculacion Where (añolectivo='" + buscarr.getSelectedItem().toString() + "' ) ", tabla1);
+        if(jComboBox1.getSelectedItem().toString().equals("Año Lectivo"))
+        {
+            obj.CargarTabla("Select  * From matriculacion Where (añolectivo='"+buscarr.getSelectedItem().toString()+"' ) ", tabla1);
         }
-
-
+        
+       
     }//GEN-LAST:event_Buscar1ActionPerformed
-
-    private void cedestKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedestKeyPressed
-
-
-    }//GEN-LAST:event_cedestKeyPressed
-
-    private void apeestKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apeestKeyPressed
-        apeest.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
-                java.util.Collections.EMPTY_SET);
-        if (evt.getKeyCode() == KeyEvent.VK_TAB) {
-            nomest.requestFocus();
-        }
-
-    }//GEN-LAST:event_apeestKeyPressed
     Calendar fecha = new GregorianCalendar();
     String Dates = fecha.get(Calendar.YEAR) + "-" + (fecha.get(Calendar.MONTH) + 1) + "-" + fecha.get(Calendar.DAY_OF_MONTH) + " " + fecha.get(Calendar.HOUR) + ":" + fecha.get(Calendar.MINUTE) + ":" + fecha.get(Calendar.SECOND);
 

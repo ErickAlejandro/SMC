@@ -132,20 +132,9 @@
             <Property name="bordeColorNoFocus" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="focusCycleRoot" type="boolean" value="true"/>
             <Property name="materialDesing" type="boolean" value="true"/>
-            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="guardar"/>
-            </Property>
             <Property name="placeholder" type="java.lang.String" value="CONTRASE&#xd1;A"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Contrase&#xf1;a"/>
-            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Contrase&#xf1;a"/>
-          </AccessibilityProperties>
-          <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_passwordKeyPressed"/>
-          </Events>
         </Component>
         <Component class="LIB.FSTexFieldMD" name="txt_usuario">
           <Properties>
@@ -161,13 +150,6 @@
             <Property name="materialDesing" type="boolean" value="true"/>
             <Property name="placeholder" type="java.lang.String" value="NOMBRE DE USUARIO"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="usuario"/>
-            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Nombre de Usuario"/>
-          </AccessibilityProperties>
-          <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_usuarioKeyPressed"/>
-          </Events>
         </Component>
         <Component class="LIB.FSButtonMD" name="guardar">
           <Properties>
@@ -179,13 +161,8 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Iniciar Sesion"/>
-            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Iniciar Sesion"/>
-          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarActionPerformed"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="guardarKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">

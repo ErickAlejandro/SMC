@@ -24,13 +24,6 @@ public class pnlReporte extends javax.swing.JPanel {
         initComponents();
         combodiscapacidad();
         comboañolectivo();
-        
-        Discapacidad.setNextFocusableComponent(dis);
-        dis.setNextFocusableComponent(Discapacidadfiltro);
-        Discapacidadfiltro.setNextFocusableComponent(añolectivo);
-        añolectivo.setNextFocusableComponent(representante);
-        representante.setNextFocusableComponent(rep);
-        rep.setNextFocusableComponent(Representante);
     }
      cls_reportes reportes;
      
@@ -123,7 +116,6 @@ public class pnlReporte extends javax.swing.JPanel {
             }
         });
         add(Discapacidadfiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, -1, -1));
-        Discapacidadfiltro.getAccessibleContext().setAccessibleDescription("reporte por discapacidad especifica");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Black", 1, 25)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -147,7 +139,6 @@ public class pnlReporte extends javax.swing.JPanel {
             }
         });
         add(Representante, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 590, -1, 40));
-        Representante.getAccessibleContext().setAccessibleDescription("reporte por cedula de estudiante");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -166,7 +157,6 @@ public class pnlReporte extends javax.swing.JPanel {
             }
         });
         add(representante, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, -1, -1));
-        representante.getAccessibleContext().setAccessibleDescription("reporte por año lectivo");
 
         añolectivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(añolectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, 150, 30));
@@ -196,11 +186,7 @@ public class pnlReporte extends javax.swing.JPanel {
             }
         });
         add(Discapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, -1, -1));
-        Discapacidad.getAccessibleContext().setAccessibleDescription("reporte completo por discapacidades");
-
         add(rep, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 560, 150, 20));
-        rep.getAccessibleContext().setAccessibleName("cedula estudiante");
-        rep.getAccessibleContext().setAccessibleDescription("Ingrese Cédula del Estudiante");
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel1.setText("Ingrese Cédula del Estudiante");

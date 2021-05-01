@@ -6,10 +6,8 @@
 package Formularios;
 
 import java.awt.Color;
-import java.awt.KeyboardFocusManager;
 import java.awt.MouseInfo;
 import java.awt.Point;
-import java.awt.event.KeyEvent;
 import java.util.Calendar;
 
 import java.util.logging.Level;
@@ -32,13 +30,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-            
+
         this.setLocationRelativeTo(this);
-     //   this.uno.setSelected(true);
+        this.uno.setSelected(true);
         this.setExtendedState(MAXIMIZED_BOTH);
         new CambiaPanel(pnlPrincipal, new paneles.pnlHome());
-        inicio.setFocusable(true); 
-        inicio.requestFocus(true);
     }
     static boolean maximized = true;
 
@@ -54,13 +50,13 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
-        inicio = new javax.swing.JButton();
-        re = new javax.swing.JButton();
-        re2 = new javax.swing.JButton();
-        reporte = new javax.swing.JButton();
-        registroano = new javax.swing.JButton();
-        registrodis = new javax.swing.JButton();
-        soporte = new javax.swing.JButton();
+        uno = new rsbuttom.RSButtonMetro();
+        quinto = new rsbuttom.RSButtonMetro();
+        dos = new rsbuttom.RSButtonMetro();
+        tres = new rsbuttom.RSButtonMetro();
+        cuatro = new rsbuttom.RSButtonMetro();
+        seis = new rsbuttom.RSButtonMetro();
+        ocho = new rsbuttom.RSButtonMetro();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -78,90 +74,156 @@ public class Principal extends javax.swing.JFrame {
 
         pnlMenu.setBackground(new java.awt.Color(102, 102, 102));
 
-        inicio.setText("INICIO");
-        inicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inicioActionPerformed(evt);
+        uno.setBackground(new java.awt.Color(102, 102, 102));
+        uno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_home_30px.png"))); // NOI18N
+        uno.setText("INICIO");
+        uno.setColorHover(new java.awt.Color(153, 153, 153));
+        uno.setColorNormal(new java.awt.Color(102, 102, 102));
+        uno.setColorPressed(new java.awt.Color(102, 102, 102));
+        uno.setColorTextPressed(new java.awt.Color(102, 102, 102));
+        uno.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        uno.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        uno.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        uno.setIconTextGap(8);
+        uno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                unoMousePressed(evt);
             }
         });
-        inicio.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                inicioKeyPressed(evt);
+        uno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unoActionPerformed(evt);
             }
         });
 
-        re.setText("R. SEGURIDAD");
-        re.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reActionPerformed(evt);
+        quinto.setBackground(new java.awt.Color(102, 102, 102));
+        quinto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_calendar_30px_1.png"))); // NOI18N
+        quinto.setText("REGISTRO AÑO LECTIVO");
+        quinto.setColorHover(new java.awt.Color(153, 153, 153));
+        quinto.setColorNormal(new java.awt.Color(102, 102, 102));
+        quinto.setColorPressed(new java.awt.Color(102, 102, 102));
+        quinto.setColorTextPressed(new java.awt.Color(102, 102, 102));
+        quinto.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        quinto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        quinto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        quinto.setIconTextGap(8);
+        quinto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                quintoMousePressed(evt);
             }
         });
-        re.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                reKeyPressed(evt);
+        quinto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quintoActionPerformed(evt);
             }
         });
 
-        re2.setText("REGISTRO ESTUDIANTE");
-        re2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                re2ActionPerformed(evt);
+        dos.setBackground(new java.awt.Color(102, 102, 102));
+        dos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_security_lock_30px.png"))); // NOI18N
+        dos.setText("R. SEGURIDAD ESTUDIANTE");
+        dos.setColorHover(new java.awt.Color(153, 153, 153));
+        dos.setColorNormal(new java.awt.Color(102, 102, 102));
+        dos.setColorPressed(new java.awt.Color(102, 102, 102));
+        dos.setColorTextPressed(new java.awt.Color(102, 102, 102));
+        dos.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        dos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        dos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        dos.setIconTextGap(8);
+        dos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                dosMousePressed(evt);
             }
         });
-        re2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                re2KeyPressed(evt);
+        dos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dosActionPerformed(evt);
             }
         });
 
-        reporte.setText("REPORTES");
-        reporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reporteActionPerformed(evt);
+        tres.setBackground(new java.awt.Color(102, 102, 102));
+        tres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_student_registration_30px.png"))); // NOI18N
+        tres.setText("REGISTRO ESTUDIANTE");
+        tres.setColorHover(new java.awt.Color(153, 153, 153));
+        tres.setColorNormal(new java.awt.Color(102, 102, 102));
+        tres.setColorPressed(new java.awt.Color(102, 102, 102));
+        tres.setColorTextPressed(new java.awt.Color(102, 102, 102));
+        tres.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        tres.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        tres.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        tres.setIconTextGap(8);
+        tres.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tresMousePressed(evt);
             }
         });
-        reporte.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                reporteKeyPressed(evt);
+        tres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tresActionPerformed(evt);
             }
         });
 
-        registroano.setText("R. AÑO LECTIVO");
-        registroano.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registroanoActionPerformed(evt);
+        cuatro.setBackground(new java.awt.Color(102, 102, 102));
+        cuatro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_report_card_30px_1.png"))); // NOI18N
+        cuatro.setText("REPORTES");
+        cuatro.setColorHover(new java.awt.Color(153, 153, 153));
+        cuatro.setColorNormal(new java.awt.Color(102, 102, 102));
+        cuatro.setColorPressed(new java.awt.Color(102, 102, 102));
+        cuatro.setColorTextPressed(new java.awt.Color(102, 102, 102));
+        cuatro.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        cuatro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cuatro.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        cuatro.setIconTextGap(8);
+        cuatro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cuatroMousePressed(evt);
             }
         });
-        registroano.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                registroanoKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                registroanoKeyReleased(evt);
+        cuatro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuatroActionPerformed(evt);
             }
         });
 
-        registrodis.setText("R. DISCAPACIDADES");
-        registrodis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrodisActionPerformed(evt);
+        seis.setBackground(new java.awt.Color(102, 102, 102));
+        seis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_assistive_technology_30px_1.png"))); // NOI18N
+        seis.setText("REGISTRO DISCAPACIDADES");
+        seis.setColorHover(new java.awt.Color(153, 153, 153));
+        seis.setColorNormal(new java.awt.Color(102, 102, 102));
+        seis.setColorPressed(new java.awt.Color(102, 102, 102));
+        seis.setColorTextPressed(new java.awt.Color(102, 102, 102));
+        seis.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        seis.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        seis.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        seis.setIconTextGap(8);
+        seis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                seisMousePressed(evt);
             }
         });
-        registrodis.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                registrodisKeyPressed(evt);
+        seis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seisActionPerformed(evt);
             }
         });
 
-        soporte.setText("SOPORTE");
-        soporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                soporteActionPerformed(evt);
+        ocho.setBackground(new java.awt.Color(102, 102, 102));
+        ocho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/soporte_30px.png"))); // NOI18N
+        ocho.setText("SOPORTE");
+        ocho.setColorHover(new java.awt.Color(153, 153, 153));
+        ocho.setColorNormal(new java.awt.Color(102, 102, 102));
+        ocho.setColorPressed(new java.awt.Color(102, 102, 102));
+        ocho.setColorTextPressed(new java.awt.Color(102, 102, 102));
+        ocho.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        ocho.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        ocho.setIconTextGap(8);
+        ocho.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ochoMousePressed(evt);
             }
         });
-        soporte.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                soporteKeyPressed(evt);
+        ocho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ochoActionPerformed(evt);
             }
         });
 
@@ -170,66 +232,38 @@ public class Principal extends javax.swing.JFrame {
         pnlMenuLayout.setHorizontalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMenuLayout.createSequentialGroup()
-                            .addGap(51, 51, 51)
-                            .addComponent(inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMenuLayout.createSequentialGroup()
-                            .addGap(51, 51, 51)
-                            .addComponent(re, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMenuLayout.createSequentialGroup()
-                            .addGap(51, 51, 51)
-                            .addComponent(reporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlMenuLayout.createSequentialGroup()
-                            .addGap(51, 51, 51)
-                            .addComponent(re2)))
+                    .addComponent(tres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cuatro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(seis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(uno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMenuLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(registroano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlMenuLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(registrodis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlMenuLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(soporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(quinto, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ocho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(re, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118)
+                .addComponent(uno, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(dos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(re2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
-                .addComponent(reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addComponent(registroano, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tres, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(cuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addComponent(quinto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registrodis, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(soporte, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(ocho, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
         );
-
-        inicio.getAccessibleContext().setAccessibleName("Menu Inicio");
-        inicio.getAccessibleContext().setAccessibleDescription("Menu Inicio");
-        re.getAccessibleContext().setAccessibleName("registro de seguridad");
-        re.getAccessibleContext().setAccessibleDescription("registro de seguridad");
-        re2.getAccessibleContext().setAccessibleName("registro estudiante");
-        re2.getAccessibleContext().setAccessibleDescription("registro estudiante");
-        reporte.getAccessibleContext().setAccessibleName("reportes");
-        reporte.getAccessibleContext().setAccessibleDescription("reportes");
-        registroano.getAccessibleContext().setAccessibleName("registro año lectivo");
-        registroano.getAccessibleContext().setAccessibleDescription("registro año lectivo");
-        registrodis.getAccessibleContext().setAccessibleName("registro discapacidades");
-        registrodis.getAccessibleContext().setAccessibleDescription("registro discapacidades");
-        soporte.getAccessibleContext().setAccessibleName("soporte");
-        soporte.getAccessibleContext().setAccessibleDescription("soporte");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -259,7 +293,6 @@ public class Principal extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setName(""); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -332,7 +365,7 @@ public class Principal extends javax.swing.JFrame {
         pnlPrincipal.setLayout(new javax.swing.BoxLayout(pnlPrincipal, javax.swing.BoxLayout.LINE_AXIS));
         jScrollPane1.setViewportView(pnlPrincipal);
 
-        pnlCentro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1130, 730));
+        pnlCentro.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1130, 730));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -357,6 +390,162 @@ public class Principal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unoActionPerformed
+        new CambiaPanel(pnlPrincipal, new paneles.pnlHome());
+
+        if (this.uno.isSelected()) {
+            this.uno.setColorNormal(new Color(153, 153, 153));
+            this.uno.setColorHover(new Color(153, 153, 153));
+            this.uno.setColorPressed(new Color(153, 153, 153));
+
+            this.dos.setColorNormal(new Color(102, 102, 102));
+            this.dos.setColorHover(new Color(102, 102, 102));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+
+            this.tres.setColorNormal(new Color(102, 102, 102));
+            this.tres.setColorHover(new Color(102, 102, 102));
+            this.tres.setColorPressed(new Color(153, 153, 153));
+
+            this.cuatro.setColorNormal(new Color(102, 102, 102));
+            this.cuatro.setColorHover(new Color(102, 102, 102));
+            this.cuatro.setColorPressed(new Color(153, 153, 153));
+
+            this.quinto.setColorNormal(new Color(102, 102, 102));
+            this.quinto.setColorHover(new Color(102, 102, 102));
+            this.quinto.setColorPressed(new Color(153, 153, 153));
+
+            this.seis.setColorNormal(new Color(102, 102, 102));
+            this.seis.setColorHover(new Color(102, 102, 102));
+            this.seis.setColorPressed(new Color(153, 153, 153));
+            
+            this.ocho.setColorNormal(new Color(102, 102, 102));
+            this.ocho.setColorHover(new Color(102, 102, 102));
+            this.ocho.setColorPressed(new Color(153, 153, 153));
+            
+
+         /////   this.CONFIG.setColorNormal(new Color(102, 102, 102));
+        ///    this.CONFIG.setColorHover(new Color(102, 102, 102));
+       //     this.CONFIG.setColorPressed(new Color(102, 102, 102));
+        } else {
+            this.uno.setColorNormal(new Color(102, 102, 102));
+            this.uno.setColorHover(new Color(102, 102, 102));
+            this.uno.setColorPressed(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_unoActionPerformed
+
+    private void unoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_unoMousePressed
+        this.uno.setSelected(true);
+        this.dos.setSelected(false);
+        this.tres.setSelected(false);
+        this.cuatro.setSelected(false);
+        this.quinto.setSelected(false);
+        this.seis.setSelected(false);
+         this.ocho.setSelected(false);
+///        this.CONFIG.setSelected(false);
+    }//GEN-LAST:event_unoMousePressed
+
+    private void quintoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quintoActionPerformed
+        new CambiaPanel(pnlPrincipal, new paneles.pnlAño());
+        if (this.quinto.isSelected()) {
+
+            this.quinto.setColorNormal(new Color(153, 153, 153));
+            this.quinto.setColorHover(new Color(153, 153, 153));
+            this.quinto.setColorPressed(new Color(153, 153, 153));
+
+            this.dos.setColorNormal(new Color(102, 102, 102));
+            this.dos.setColorHover(new Color(102, 102, 102));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+
+            this.tres.setColorNormal(new Color(102, 102, 102));
+            this.dos.setColorHover(new Color(102, 102, 102));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+
+            this.uno.setColorNormal(new Color(102, 102, 102));
+            this.uno.setColorHover(new Color(102, 102, 102));
+            this.uno.setColorPressed(new Color(153, 153, 153));
+
+            this.seis.setColorNormal(new Color(102, 102, 102));
+            this.seis.setColorHover(new Color(102, 102, 102));
+            this.seis.setColorPressed(new Color(153, 153, 153));
+
+            this.cuatro.setColorNormal(new Color(102, 102, 102));
+            this.cuatro.setColorHover(new Color(102, 102, 102));
+            this.cuatro.setColorPressed(new Color(153, 153, 153));
+            
+             this.ocho.setColorNormal(new Color(102, 102, 102));
+            this.ocho.setColorHover(new Color(102, 102, 102));
+            this.ocho.setColorPressed(new Color(153, 153, 153));
+
+       //     this.CONFIG.setColorNormal(new Color(102, 102, 102));
+      //      this.CONFIG.setColorHover(new Color(102, 102, 102));
+     //      this.CONFIG.setColorPressed(new Color(153, 153, 153));
+
+        } else {
+            this.quinto.setColorNormal(new Color(102, 102, 102));
+            this.quinto.setColorHover(new Color(102, 102, 102));
+            this.quinto.setColorPressed(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_quintoActionPerformed
+
+    private void quintoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quintoMousePressed
+        this.uno.setSelected(false);
+        this.dos.setSelected(false);
+        this.tres.setSelected(false);
+        this.cuatro.setSelected(false);
+        this.quinto.setSelected(true);
+        this.seis.setSelected(false);
+   //    this.CONFIG.setSelected(false);
+          this.ocho.setSelected(false);
+    }//GEN-LAST:event_quintoMousePressed
+
+    private void dosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dosMousePressed
+        this.uno.setSelected(false);
+        this.dos.setSelected(true);
+        this.tres.setSelected(false);
+        this.cuatro.setSelected(false);
+        this.quinto.setSelected(false);
+        this.seis.setSelected(false);
+         this.ocho.setSelected(false);
+   //     this.CONFIG.setSelected(false);
+    }//GEN-LAST:event_dosMousePressed
+
+    private void dosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosActionPerformed
+        new CambiaPanel(pnlPrincipal, new paneles.pnlSeguridad());
+        if (this.dos.isSelected()) {
+            this.dos.setColorNormal(new Color(153, 153, 153));
+            this.dos.setColorHover(new Color(153, 153, 153));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+
+            this.uno.setColorNormal(new Color(102, 102, 102));
+            this.uno.setColorHover(new Color(102, 102, 102));
+            this.uno.setColorPressed(new Color(153, 153, 153));
+
+            this.tres.setColorNormal(new Color(102, 102, 102));
+            this.tres.setColorHover(new Color(102, 102, 102));
+            this.tres.setColorPressed(new Color(153, 153, 153));
+
+            this.seis.setColorNormal(new Color(102, 102, 102));
+            this.seis.setColorHover(new Color(102, 102, 102));
+            this.seis.setColorPressed(new Color(153, 153, 153));
+
+            this.cuatro.setColorNormal(new Color(102, 102, 102));
+            this.cuatro.setColorHover(new Color(102, 102, 102));
+            this.cuatro.setColorPressed(new Color(153, 153, 153));
+
+            this.quinto.setColorNormal(new Color(102, 102, 102));
+            this.quinto.setColorHover(new Color(102, 102, 102));
+            this.quinto.setColorPressed(new Color(153, 153, 153));
+
+       ////     this.CONFIG.setColorNormal(new Color(102, 102, 102));
+        ///    this.CONFIG.setColorHover(new Color(102, 102, 102));
+        //    this.CONFIG.setColorPressed(new Color(153, 153, 153));
+        } else {
+            this.dos.setColorNormal(new Color(102, 102, 102));
+            this.dos.setColorHover(new Color(102, 102, 102));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_dosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int posicion = pnlMenu.getX();
@@ -387,94 +576,223 @@ public class Principal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_salirMouseClicked
 
-    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
+    private void tresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tresMousePressed
         // TODO add your handling code here:
-         new CambiaPanel(pnlPrincipal, new paneles.pnlHome());
-    }//GEN-LAST:event_inicioActionPerformed
+        this.uno.setSelected(false);
+        this.dos.setSelected(false);
+        this.tres.setSelected(true);
+        this.cuatro.setSelected(false);
+        this.quinto.setSelected(false);
+         this.seis.setSelected(false);
+        
+        this.ocho.setSelected(false);
+    }//GEN-LAST:event_tresMousePressed
 
-    private void reActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reActionPerformed
-        new CambiaPanel(pnlPrincipal, new paneles.pnlSeguridad());        // TODO add your handling code here:
-    }//GEN-LAST:event_reActionPerformed
-
-    private void re2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_re2ActionPerformed
+    private void tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tresActionPerformed
         // TODO add your handling code here:
-         new CambiaPanel(pnlPrincipal, new paneles.pnlRegistro());
-    }//GEN-LAST:event_re2ActionPerformed
+        new CambiaPanel(pnlPrincipal, new paneles.pnlRegistro());
+        if (this.tres.isSelected()) {
 
-    private void reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteActionPerformed
+            this.tres.setColorNormal(new Color(153, 153, 153));
+            this.tres.setColorHover(new Color(153, 153, 153));
+            this.tres.setColorPressed(new Color(153, 153, 153));
+
+            this.dos.setColorNormal(new Color(102, 102, 102));
+            this.dos.setColorHover(new Color(102, 102, 102));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+
+            this.uno.setColorNormal(new Color(102, 102, 102));
+            this.uno.setColorHover(new Color(102, 102, 102));
+            this.uno.setColorPressed(new Color(153, 153, 153));
+            
+            this.seis.setColorNormal(new Color(102, 102, 102));
+            this.seis.setColorHover(new Color(102, 102, 102));
+            this.seis.setColorPressed(new Color(153, 153, 153));
+            
+            
+            this.cuatro.setColorNormal(new Color(102, 102, 102));
+            this.cuatro.setColorHover(new Color(102, 102, 102));
+            this.cuatro.setColorPressed(new Color(153, 153, 153));
+
+            this.quinto.setColorNormal(new Color(102, 102, 102));
+            this.quinto.setColorHover(new Color(102, 102, 102));
+            this.quinto.setColorPressed(new Color(153, 153, 153));
+
+      //      this.CONFIG.setColorNormal(new Color(102, 102, 102));
+      //      this.CONFIG.setColorHover(new Color(102, 102, 102));
+     //       this.CONFIG.setColorPressed(new Color(153, 153, 153));
+
+        } else {
+            this.tres.setColorNormal(new Color(102, 102, 102));
+            this.tres.setColorHover(new Color(102, 102, 102));
+            this.tres.setColorPressed(new Color(153, 153, 153));
+        }
+
+
+    }//GEN-LAST:event_tresActionPerformed
+
+    private void cuatroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cuatroMousePressed
+        // TODO add your handling code here:this.uno.setSelected(false);
+        this.dos.setSelected(false);
+        this.tres.setSelected(false);
+        this.cuatro.setSelected(true);
+        this.quinto.setSelected(false);
+         this.seis.setSelected(false);
+        
+       this.ocho.setSelected(false);
+
+    }//GEN-LAST:event_cuatroMousePressed
+
+    private void cuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuatroActionPerformed
         // TODO add your handling code here:
-         new CambiaPanel(pnlPrincipal, new paneles.pnlReporte());
-    }//GEN-LAST:event_reporteActionPerformed
+        new CambiaPanel(pnlPrincipal, new paneles.pnlReporte());
+        if (this.cuatro.isSelected()) {
 
-    private void registroanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroanoActionPerformed
+            this.cuatro.setColorNormal(new Color(153, 153, 153));
+            this.cuatro.setColorHover(new Color(153, 153, 153));
+            this.cuatro.setColorPressed(new Color(153, 153, 153));
+
+            this.dos.setColorNormal(new Color(102, 102, 102));
+            this.dos.setColorHover(new Color(102, 102, 102));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+            
+            
+            this.seis.setColorNormal(new Color(102, 102, 102));
+            this.seis.setColorHover(new Color(102, 102, 102));
+            this.seis.setColorPressed(new Color(153, 153, 153));
+            
+
+            this.tres.setColorNormal(new Color(102, 102, 102));
+            this.tres.setColorHover(new Color(102, 102, 102));
+            this.tres.setColorPressed(new Color(153, 153, 153));
+
+            this.uno.setColorNormal(new Color(102, 102, 102));
+            this.uno.setColorHover(new Color(102, 102, 102));
+            this.uno.setColorPressed(new Color(153, 153, 153));
+
+            this.quinto.setColorNormal(new Color(102, 102, 102));
+            this.quinto.setColorHover(new Color(102, 102, 102));
+            this.quinto.setColorPressed(new Color(153, 153, 153));
+
+        //    this.CONFIG.setColorNormal(new Color(102, 102, 102));
+        //    this.CONFIG.setColorHover(new Color(102, 102, 102));
+        //    this.CONFIG.setColorPressed(new Color(153, 153, 153));
+
+        } else {
+            this.cuatro.setColorNormal(new Color(102, 102, 102));
+            this.cuatro.setColorHover(new Color(102, 102, 102));
+            this.cuatro.setColorPressed(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_cuatroActionPerformed
+
+    private void seisMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seisMousePressed
         // TODO add your handling code here:
-         new CambiaPanel(pnlPrincipal, new paneles.pnlAño());
-    }//GEN-LAST:event_registroanoActionPerformed
+        this.uno.setSelected(false);
+        this.dos.setSelected(false);
+        this.tres.setSelected(false);
+        this.cuatro.setSelected(false);
+        this.quinto.setSelected(false);
+         this.seis.setSelected(true);
+        
+        this.ocho.setSelected(false);
+         
+    }//GEN-LAST:event_seisMousePressed
 
-    private void registrodisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrodisActionPerformed
+    private void seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisActionPerformed
         // TODO add your handling code here:
-         new CambiaPanel(pnlPrincipal, new paneles.pnlDiscapacidad());
-    }//GEN-LAST:event_registrodisActionPerformed
+   new CambiaPanel(pnlPrincipal, new paneles.pnlDiscapacidad());
+        if (this.seis.isSelected()) {
 
-    private void soporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soporteActionPerformed
+            this.seis.setColorNormal(new Color(153, 153, 153));
+            this.seis.setColorHover(new Color(153, 153, 153));
+            this.seis.setColorPressed(new Color(153, 153, 153));
+
+            this.dos.setColorNormal(new Color(102, 102, 102));
+            this.dos.setColorHover(new Color(102, 102, 102));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+            
+          
+            
+
+            this.tres.setColorNormal(new Color(102, 102, 102));
+            this.tres.setColorHover(new Color(102, 102, 102));
+            this.tres.setColorPressed(new Color(153, 153, 153));
+
+            this.uno.setColorNormal(new Color(102, 102, 102));
+            this.uno.setColorHover(new Color(102, 102, 102));
+            this.uno.setColorPressed(new Color(153, 153, 153));
+
+            this.quinto.setColorNormal(new Color(102, 102, 102));
+            this.quinto.setColorHover(new Color(102, 102, 102));
+            this.quinto.setColorPressed(new Color(153, 153, 153));
+ 
+            this.ocho.setColorNormal(new Color(102, 102, 102));
+            this.ocho.setColorHover(new Color(102, 102, 102));
+           this.ocho.setColorPressed(new Color(153, 153, 153));
+
+        } else {
+            this.seis.setColorNormal(new Color(102, 102, 102));
+            this.seis.setColorHover(new Color(102, 102, 102));
+            this.seis.setColorPressed(new Color(153, 153, 153));
+        }
+
+    }//GEN-LAST:event_seisActionPerformed
+
+    private void ochoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ochoMousePressed
         // TODO add your handling code here:
          new CambiaPanel(pnlPrincipal, new paneles.pnlSoporte());
-    }//GEN-LAST:event_soporteActionPerformed
+        if (this.ocho.isSelected()) {
 
-    private void inicioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inicioKeyPressed
-        // TODO add your handling code here:
-       
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             new CambiaPanel(pnlPrincipal, new paneles.pnlHome());
+            this.ocho.setColorNormal(new Color(153, 153, 153));
+            this.ocho.setColorHover(new Color(153, 153, 153));
+            this.ocho.setColorPressed(new Color(153, 153, 153));
+
+            this.dos.setColorNormal(new Color(102, 102, 102));
+            this.dos.setColorHover(new Color(102, 102, 102));
+            this.dos.setColorPressed(new Color(153, 153, 153));
+            
+          this.seis.setColorNormal(new Color(102, 102, 102));
+            this.seis.setColorHover(new Color(102, 102, 102));
+            this.seis.setColorPressed(new Color(153, 153, 153));
+            
+//            this.CONFIG.setColorNormal(new Color(102, 102, 102));
+       ///     this.CONFIG.setColorHover(new Color(102, 102, 102));
+      //      this.CONFIG.setColorPressed(new Color(153, 153, 153));
+
+            this.tres.setColorNormal(new Color(102, 102, 102));
+            this.tres.setColorHover(new Color(102, 102, 102));
+            this.tres.setColorPressed(new Color(153, 153, 153));
+
+            this.uno.setColorNormal(new Color(102, 102, 102));
+            this.uno.setColorHover(new Color(102, 102, 102));
+            this.uno.setColorPressed(new Color(153, 153, 153));
+
+            this.quinto.setColorNormal(new Color(102, 102, 102));
+            this.quinto.setColorHover(new Color(102, 102, 102));
+            this.quinto.setColorPressed(new Color(153, 153, 153));
+
+            this.cuatro.setColorNormal(new Color(102, 102, 102));
+            this.cuatro.setColorHover(new Color(102, 102, 102));
+            this.cuatro.setColorPressed(new Color(153, 153, 153));
+
+        } else {
+            this.ocho.setColorNormal(new Color(102, 102, 102));
+            this.ocho.setColorHover(new Color(102, 102, 102));
+            this.ocho.setColorPressed(new Color(153, 153, 153));
         }
-    }//GEN-LAST:event_inicioKeyPressed
+    }//GEN-LAST:event_ochoMousePressed
 
-    private void reKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reKeyPressed
+    private void ochoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ochoActionPerformed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             new CambiaPanel(pnlPrincipal, new paneles.pnlSeguridad());
-             new paneles.pnlSeguridad().ced.requestFocus(true);
-        }
-    }//GEN-LAST:event_reKeyPressed
-
-    private void re2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_re2KeyPressed
-        // TODO add your handling code here:
-          if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             new CambiaPanel(pnlPrincipal, new paneles.pnlRegistro());
-        }
-    }//GEN-LAST:event_re2KeyPressed
-
-    private void reporteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reporteKeyPressed
-        // TODO add your handling code here:
-          if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             new CambiaPanel(pnlPrincipal, new paneles.pnlReporte());
-        }
-    }//GEN-LAST:event_reporteKeyPressed
-
-    private void registroanoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registroanoKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registroanoKeyReleased
-
-    private void registroanoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registroanoKeyPressed
-        // TODO add your handling code here:
-          if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             new CambiaPanel(pnlPrincipal, new paneles.pnlAño());
-        }
-    }//GEN-LAST:event_registroanoKeyPressed
-
-    private void registrodisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registrodisKeyPressed
-        // TODO add your handling code here:
-          if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             new CambiaPanel(pnlPrincipal, new paneles.pnlDiscapacidad());
-        }
-    }//GEN-LAST:event_registrodisKeyPressed
-
-    private void soporteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_soporteKeyPressed
-        // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-             new CambiaPanel(pnlPrincipal, new paneles.pnlSoporte());
-        }
-    }//GEN-LAST:event_soporteKeyPressed
+            this.uno.setSelected(false);
+        this.dos.setSelected(false);
+        this.tres.setSelected(false);
+        this.cuatro.setSelected(false);
+        this.quinto.setSelected(false);
+          this.ocho.setSelected(true);
+        
+         this.seis.setSelected(false);
+    }//GEN-LAST:event_ochoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -519,21 +837,21 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton inicio;
+    private rsbuttom.RSButtonMetro cuatro;
+    private rsbuttom.RSButtonMetro dos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private rsbuttom.RSButtonMetro ocho;
     private javax.swing.JPanel pnlCentro;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JPanel pnlPrincipal;
-    private javax.swing.JButton re;
-    private javax.swing.JButton re2;
-    private javax.swing.JButton registroano;
-    private javax.swing.JButton registrodis;
-    private javax.swing.JButton reporte;
+    private rsbuttom.RSButtonMetro quinto;
     private javax.swing.JButton salir;
-    private javax.swing.JButton soporte;
+    private rsbuttom.RSButtonMetro seis;
+    private rsbuttom.RSButtonMetro tres;
+    private rsbuttom.RSButtonMetro uno;
     // End of variables declaration//GEN-END:variables
 }
