@@ -432,6 +432,8 @@ public class Principal extends javax.swing.JFrame {
             this.uno.setColorHover(new Color(102, 102, 102));
             this.uno.setColorPressed(new Color(153, 153, 153));
         }
+        
+        System.out.print("\n\nForm Principal T1.1 Cambiar panel ejecutado");
     }//GEN-LAST:event_unoActionPerformed
 
     private void unoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_unoMousePressed
@@ -443,6 +445,8 @@ public class Principal extends javax.swing.JFrame {
         this.seis.setSelected(false);
          this.ocho.setSelected(false);
 ///        this.CONFIG.setSelected(false);
+
+        System.out.print("\n\nForm Principal T1.2 Botón presionado Cambio de panel exitoso");
     }//GEN-LAST:event_unoMousePressed
 
     private void quintoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quintoActionPerformed
@@ -486,6 +490,8 @@ public class Principal extends javax.swing.JFrame {
             this.quinto.setColorHover(new Color(102, 102, 102));
             this.quinto.setColorPressed(new Color(153, 153, 153));
         }
+        
+        System.out.print("\n\nForm Principal T1.3 Botón presionado Cambio de panel exitoso");
     }//GEN-LAST:event_quintoActionPerformed
 
     private void quintoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quintoMousePressed
@@ -545,6 +551,8 @@ public class Principal extends javax.swing.JFrame {
             this.dos.setColorHover(new Color(102, 102, 102));
             this.dos.setColorPressed(new Color(153, 153, 153));
         }
+        
+        System.out.print("\n\nForm Principal T1.4 Botón presionado Cambio de panel exitoso");
     }//GEN-LAST:event_dosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -627,6 +635,8 @@ public class Principal extends javax.swing.JFrame {
             this.tres.setColorHover(new Color(102, 102, 102));
             this.tres.setColorPressed(new Color(153, 153, 153));
         }
+        
+        System.out.print("\n\nForm Principal T1.5 Botón presionado Cambio de panel exitoso");
 
 
     }//GEN-LAST:event_tresActionPerformed
@@ -683,6 +693,8 @@ public class Principal extends javax.swing.JFrame {
             this.cuatro.setColorHover(new Color(102, 102, 102));
             this.cuatro.setColorPressed(new Color(153, 153, 153));
         }
+        
+        System.out.print("\n\nForm Principal T1.6 Botón presionado Cambio de panel exitoso");
     }//GEN-LAST:event_cuatroActionPerformed
 
     private void seisMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seisMousePressed
@@ -735,6 +747,8 @@ public class Principal extends javax.swing.JFrame {
             this.seis.setColorHover(new Color(102, 102, 102));
             this.seis.setColorPressed(new Color(153, 153, 153));
         }
+        
+        System.out.print("\n\nForm Principal T1.7 Botón presionado Cambio de panel exitoso");
 
     }//GEN-LAST:event_seisActionPerformed
 
@@ -780,6 +794,8 @@ public class Principal extends javax.swing.JFrame {
             this.ocho.setColorHover(new Color(102, 102, 102));
             this.ocho.setColorPressed(new Color(153, 153, 153));
         }
+        
+        System.out.print("\n\nForm Principal T1.8 Botón presionado Cambio de panel exitoso");
     }//GEN-LAST:event_ochoMousePressed
 
     private void ochoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ochoActionPerformed

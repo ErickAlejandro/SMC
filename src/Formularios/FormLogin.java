@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Formularios;
+import Controladores.IntegrationTestHelper;
 
 import java.awt.Component;
 import java.awt.MouseInfo;
@@ -26,22 +27,16 @@ public class FormLogin extends javax.swing.JFrame {
     int x, y;
   
     private String  usuario, password;
+    IntegrationTestHelper testHelper =  new IntegrationTestHelper();
 
     public FormLogin() {
         initComponents();
         txt_usuario.setFocusable(true);
-       
-       
     }
 
     public void datos(String us, String pass) {
         usuario = "user";
         password = "admin";
-       
-       
-       
-   
-
     }
 
   
@@ -210,34 +205,55 @@ public class FormLogin extends javax.swing.JFrame {
             Principal st = new Principal();
             st.setVisible(true);
             this.dispose();
+            
+            testHelper.validateResulSetTest(true, "Login T1.1: Usuario y contaseña correcto");
+            
         } else if (txt_usuario.getText().equals("") && txt_password.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña estan vacios\nIngrese los por favor.");
             txt_usuario.setFocusable(true);
+            
+            testHelper.validateResulSetTest(true, "Login T1.2: Usuario y Contraseña vacios.");
+            
         } else if (txt_usuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Usuario está vacio\nIngrese lo por favor.");
             txt_usuario.setFocusable(true);
+            
+            testHelper.validateResulSetTest(true, "Login T1.3: Usuario vacio.");
+            
         } else if (txt_password.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Contraseña está vacio\nIngrese lo por favor.");
             txt_password.setFocusable(true);
+            
+            testHelper.validateResulSetTest(true, "Login T1.4: Contraseña vacia.");
+            
         } else if (txt_usuario.getText().compareTo(usuario) != 0 && txt_password.getText().compareTo(password) != 0) {
             JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos\nIngrese nuevamente.");
             txt_usuario.setFocusable(true);
+            
+            testHelper.validateResulSetTest(true, "Login T1.4: Usuario y/o Contraseña no válidos.");
+            
         } else if (txt_usuario.getText().compareTo(usuario) != 0) {
             JOptionPane.showMessageDialog(this, "Usuario no válido\nIngrese nuevamente.");
             txt_usuario.setFocusable(true);
+            
+            testHelper.validateResulSetTest(true, "Login T1.6: Usuario no válido.");
+            
         } else if (txt_password.getText().compareTo(password) != 0) {
             JOptionPane.showMessageDialog(this, "Contraseña no válida\nIngrese nuevamente.");
             txt_password.setFocusable(true);
+            
+            testHelper.validateResulSetTest(true, "Login T1.7: Contraseña no válida.");
+            
         }
         
        
         String encriptMD5=DigestUtils.md5Hex(password);
-        System.out.println("Contraseña encriptada : "+encriptMD5);
+        System.out.println("\n\nContraseña encriptada : "+encriptMD5);
     }//GEN-LAST:event_guardarActionPerformed
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         // TODO add your handling code here:
-          x = evt.getX();
+        x = evt.getX();
         y = evt.getY();
     }//GEN-LAST:event_jPanel1MousePressed
 

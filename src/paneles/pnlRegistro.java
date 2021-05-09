@@ -6,6 +6,7 @@
 package paneles;
 
 import Controladores.MatriculacionJpaController;
+import Controladores.IntegrationTestHelper;
 import Entidades.cls_conexion;
 import Entidades.valid;
 import groovyjarjarasm.asm.util.Printer;
@@ -50,14 +51,15 @@ public class pnlRegistro extends javax.swing.JPanel {
     int idlec;
 
     Entidades.Matriculacion lol = new Entidades.Matriculacion();
+    IntegrationTestHelper testHelper =  new IntegrationTestHelper();
 
     public pnlRegistro() {
         initComponents();
- 
+
         comboañolectivo();
         combodiscapacidad();
         combobuscar();
-        cls_conexion obj = new cls_conexion(); 
+        cls_conexion obj = new cls_conexion();
         createmodelo();
         cargar_informacion();
         id.setText("0");
@@ -67,9 +69,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         lolsito();
 
     }
-    
 
-    
     public void comboañolectivo() {
         this.añolectivo.removeAllItems();
         try {
@@ -77,37 +77,36 @@ public class pnlRegistro extends javax.swing.JPanel {
             Statement Sent = con.createStatement();
             ResultSet rs = Sent.executeQuery("select * from añolectivo ");
             while (rs.next()) {
-                
-                this.añolectivo.addItem(rs.getString("año"));
-                 
-            }
-        } catch (Exception e) {
 
+                this.añolectivo.addItem(rs.getString("año"));
+
+            }
+            
+            testHelper.validateResulSetTest(true, "Registro T1.1 Cargar combo");
+        } catch (Exception e) {
+           testHelper.validateResulSetTest(false, "Registro T1.1 Cargar combo");
         }
-        
-        
-        
+
     }
-    
-   
- public void combobuscar() {
+
+    public void combobuscar() {
         this.buscarr.removeAllItems();
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/sistemamatriculacioncng", "root", "");
             Statement Sent = con.createStatement();
             ResultSet rs = Sent.executeQuery("select * from añolectivo");
             while (rs.next()) {
-                
-                this.buscarr.addItem(rs.getString("año"));
-                 
-            }
-        } catch (Exception e) {
 
+                this.buscarr.addItem(rs.getString("año"));
+
+            }
+            
+            testHelper.validateResulSetTest(true, "Registro T1.2 Buscar combo");
+        } catch (Exception e) {
+            testHelper.validateResulSetTest(false, "Registro T1.2 Buscar combo");
         }
-        
-        
-        
     }
+
     public void combodiscapacidad() {
         this.dis.removeAllItems();
         try {
@@ -117,8 +116,10 @@ public class pnlRegistro extends javax.swing.JPanel {
             while (rs.next()) {
                 this.dis.addItem(rs.getString("tipodediscapacidad"));
             }
+            
+            testHelper.validateResulSetTest(true, "Registro T1.3 Buscar combo discapacidad");
         } catch (Exception e) {
-
+            testHelper.validateResulSetTest(false, "Registro T1.3 Buscar combo discapacidad");
         }
     }
 
@@ -148,7 +149,7 @@ public class pnlRegistro extends javax.swing.JPanel {
             añolectivo.setEnabled(false);
             guardar.setEnabled(false);
             actualizar.setEnabled(false);
-         //   config.setEnabled(false);
+            //   config.setEnabled(false);
             tabla1.setEnabled(false);
             jLabel7.setEnabled(false);
         }
@@ -219,6 +220,7 @@ public class pnlRegistro extends javax.swing.JPanel {
         cor.setText("");
         cod.setText("");
         
+        testHelper.validateResulSetTest(true, "Registro T1.4 Boton clear presionado");
 
     }
 
@@ -248,13 +250,19 @@ public class pnlRegistro extends javax.swing.JPanel {
                 modelo.setValueAt(matriculacions.get(i).getTelCelular(), i, 15);
                 modelo.setValueAt(matriculacions.get(i).getCorreo(), i, 16);
                 modelo.setValueAt(matriculacions.get(i).getCodigodeluz(), i, 17);
-             
+
             }
+            
+            testHelper.validateResulSetTest(true, "Registro T1.5 Cargar información tabla");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
+            testHelper.validateResulSetTest(false, "Registro T1.5 Cargar información tabla");
         }
 
     }
+    
+    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -660,14 +668,17 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void Eliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar1ActionPerformed
         // TODO add your handling code here:
-           try {
+        try {
             matricula.destroy(parseInt(tabla1.getValueAt(tabla1.getSelectedRow(), 0).toString()));
-      //    ctcliente.destroy(olsito.getValueAt(olsito.getSelectedRow(), 0).toString());
+            //    ctcliente.destroy(olsito.getValueAt(olsito.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(null, "Registro Eliminado");
             createmodelo();
             cargar_informacion();
+            
+            testHelper.validateResulSetTest(true, "Registro T1.6 Eliminación de registro");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
+            testHelper.validateResulSetTest(false, "Registro T1.6 Eliminación de registro");
         }
     }//GEN-LAST:event_Eliminar1ActionPerformed
 
@@ -707,9 +718,8 @@ public class pnlRegistro extends javax.swing.JPanel {
         cel.setText(modelo.getValueAt(this.currentRow, 15).toString());
         cor.setText(modelo.getValueAt(this.currentRow, 16).toString());
         cod.setText(modelo.getValueAt(this.currentRow, 17).toString());
-         
-       // idlec.(modelo.getValueAt(this.currentRow, 18).toString());
-       
+
+        // idlec.(modelo.getValueAt(this.currentRow, 18).toString());
         //       cedest.setEnabled(false);
         txt_fecha.setEnabled(false);
         id.setEnabled(false);
@@ -755,7 +765,7 @@ public class pnlRegistro extends javax.swing.JPanel {
                 obj.setTelCelular(cel.getText());
                 obj.setCorreo(cor.getText());
                 obj.setCodigodeluz(cod.getText());
-          //      obj.setIdAñolectivo(idlec);
+                //      obj.setIdAñolectivo(idlec);
 
                 if (flag) {
                     try {
@@ -765,8 +775,11 @@ public class pnlRegistro extends javax.swing.JPanel {
                         cargar_informacion();
                         clear();
                         clear();
+                        
+                        testHelper.validateResulSetTest(true, "Registro T1.7 Guardado de registro");
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage(), "Error en DB", JOptionPane.ERROR_MESSAGE);
+                        testHelper.validateResulSetTest(false, "Registro T1.7 Guardado de registro");
                     }
                 } else {
                     try {
@@ -776,10 +789,13 @@ public class pnlRegistro extends javax.swing.JPanel {
                         cargar_informacion();
                         clear();
                         flag = true;
+                        
+                        testHelper.validateResulSetTest(true, "Registro T1.8 Acutalización de registro");
 
                         //  id.setEnabled(false);
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e.getMessage());
+                        testHelper.validateResulSetTest(false, "Registro T1.8 Acutalización de registro");
                     }
                 }
 
@@ -965,17 +981,18 @@ public class pnlRegistro extends javax.swing.JPanel {
 
     private void Buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar1ActionPerformed
         // TODO add your handling code here:
-             cls_conexion obj = new cls_conexion();
-        if(jComboBox1.getSelectedItem().toString().equals("*"))
-        {           
-            obj.CargarTabla("Select  * From matriculacion" , tabla1);
+        cls_conexion obj = new cls_conexion();
+        if (jComboBox1.getSelectedItem().toString().equals("*")) {
+            obj.CargarTabla("Select  * From matriculacion", tabla1);
+            
+            testHelper.validateResulSetTest(true, "Registro T1.9 Búsqueda de registro");
         }
-        if(jComboBox1.getSelectedItem().toString().equals("Año Lectivo"))
-        {
-            obj.CargarTabla("Select  * From matriculacion Where (añolectivo='"+buscarr.getSelectedItem().toString()+"' ) ", tabla1);
+        if (jComboBox1.getSelectedItem().toString().equals("Año Lectivo")) {
+            obj.CargarTabla("Select  * From matriculacion Where (añolectivo='" + buscarr.getSelectedItem().toString() + "' ) ", tabla1);
+            testHelper.validateResulSetTest(true, "Registro T1.9 Búsqueda de registro");
         }
-        
-       
+
+
     }//GEN-LAST:event_Buscar1ActionPerformed
     Calendar fecha = new GregorianCalendar();
     String Dates = fecha.get(Calendar.YEAR) + "-" + (fecha.get(Calendar.MONTH) + 1) + "-" + fecha.get(Calendar.DAY_OF_MONTH) + " " + fecha.get(Calendar.HOUR) + ":" + fecha.get(Calendar.MINUTE) + ":" + fecha.get(Calendar.SECOND);
